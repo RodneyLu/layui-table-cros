@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>格子和商品</title>
+    <link href="layui/css/layui.css" rel="stylesheet"/>
+    <script src="layui/layui.all.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/axios.js"></script>
+</head>
+
+<body>
+<table id="demo" lay-filter="test"></table>
+<script>
+    // 回调执行函数
+
+    var table = layui.table;
+
+    //执行渲染
+    table.render({
+        elem: '#demo', //指定原始表格元素选择器（推荐id选择器）
+        url: 'http://localhost:8080/user/all',
+        height: 315, //容器高度
+        width: 300,
+        contentType: "application/x-www-form-urlencoded",
+        cols: [
+            [{
+                field: 'id',
+                width: 100,
+                title: 'ID',
+                sort: true
+            },
+                {
+                    field: 'username',
+                    width: 100,
+                    title: '用户名'
+                },
+                {
+                    field: 'age',
+                    width: 100,
+                    title: '年龄'
+                }
+
+            ]
+        ], //设置表头
+    });
+</script>
+</body>
+
+</html>
